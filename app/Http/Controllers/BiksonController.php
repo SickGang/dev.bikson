@@ -59,6 +59,16 @@ class BiksonController extends Controller
       $items = Item::where('category', $name)->get();
     }
 
+    foreach ($items as $item) {
+      if (strpos($item->title, 'подар.')) {
+        $item->title = strstr($item->title, 'подар.', true);
+      } elseif (strpos($item->title, ':')) {
+        $item->title = strstr($item->title, ':', true);
+      } elseif (strpos($item->title, ',')) {
+       $item->title = strstr($item->title, ',', true);
+      }
+    }
+
     return $items;
   }
 

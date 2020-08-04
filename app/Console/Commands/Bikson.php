@@ -12,6 +12,7 @@ use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\RequestException;
 
 use App\Models\Catalog\Item;
+use App\Models\Catalog\Image;
 
 use Illuminate\Support\Facades\Log;
 
@@ -54,19 +55,32 @@ class Bikson extends Command
                     // Log::channel('catalog')->debug($image_url);
                 }
 
-                $item = Item::where('api_inteksar_id', $product['id'])->first();
-                if (!$item) {
-                    $item = new Item;
+                $prefix_intekopt_image = 'https://intekopt.ru/upload/photo/';
+                if ($product['img_url']) {
+                    for ($i=0; $i < 10; $i++) {
+                        if (@exif_imagetype($prefix_intekopt_image.$product['prefix_image'].'/'.$i.'.jpg')) {
+                            // $contents = file_get_contents($product['img_url']);
+                            // $store = Storage::disk('public_images_products')->put($product['prefix_image'].'.jpg', $contents);
+                            $image_url = '/images/products/'.$product['prefix_image'].'_'.$i.'.jpg';
+                            Log::channel('catalog')->debug($image_url);
+                        }
+                    }
                 }
-                $item->category = $product['category'];
-                $item->title = $product['title'];
-                $item->quantity = $product['quantity'];
-                $item->price = $product['price'];
-                $item->img_url = $image_url;
-                $item->inv_code = $product['inv_code'];
-                $item->api_inteksar_id = $product['id'];
-                $item->save();
-                echo date('Y-m-d H:i:s').' save product id = '.$item->id."\n";
+
+
+                // $item = Item::where('api_inteksar_id', $product['id'])->first();
+                // if (!$item) {
+                //     $item = new Item;
+                // }
+                // $item->category = $product['category'];
+                // $item->title = $product['title'];
+                // $item->quantity = $product['quantity'];
+                // $item->price = $product['price'];
+                // $item->img_url = $image_url;
+                // $item->inv_code = $product['inv_code'];
+                // $item->api_inteksar_id = $product['id'];
+                // $item->save();
+                // echo date('Y-m-d H:i:s').' save product id = '.$item->id."\n";
             }
         }
 
@@ -90,7 +104,7 @@ class Bikson extends Command
             }
         } catch (Exception $e) {
             echo 'Выброшено исключение: '.$e->getMessage()."\n";
-            sleep(300);
+            sleep(5);
             $this->syncCatalog();
         }
 

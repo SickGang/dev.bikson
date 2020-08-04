@@ -11046,7 +11046,7 @@ Burger end
 ************/
 
 .header-logo {
-  background: url(/images/banner.png?30f151318b87a3c4aff8b656e1d9edfb);
+  background: url(/images/banner2.jpg?6cc4faa7c4b4c4ae3ed0451807d1f7bc);
   width: 100%;
   height: 0;
   background-repeat: no-repeat;
@@ -11240,5 +11240,31 @@ Burger end
 .basket-list_item__btn {
   cursor: pointer;
   font-size: 18px;
+}
+
+.basket {
+  width: 100vh;
+}
+
+.popup-wrapper {
+  z-index: 100;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 85vh;
+}
+
+.popup {
+  width: 100vh;
+  padding: 30px;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.33);
+  transition: all 0.5s ease;
+  border-radius: 3%;
 }
 

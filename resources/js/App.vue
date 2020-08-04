@@ -6,7 +6,7 @@
     <div class="header-logo mt-3">
     </div>
   </header>
-  <scrollactive class="my-nav p-2 p-md-4" active-class="active" :offset="80" :duration="800" bezier-easing-value=".5,0,.35,1">
+  <scrollactive class="my-nav p-2 p-md-4" active-class="active" :offset="50" :duration="800" bezier-easing-value=".5,0,.35,1">
     <div class="d-flex d-md-none align-items-center">
       <div @click="clickMenu()" v-bind:class="{ 'active' : active }" class="tpl_hamburger" id="sandwichmenu">
         <svg viewBox="0 0 800 600">
@@ -19,24 +19,22 @@
     <transition :duration="{ enter: 500, leave: 800 }">
       <ul v-bind:class="{ 'is-active' : active }" class="nav-list list-unstyled d-none d-md-flex justify-content-around flex-column flex-md-row align-items-center m-0">
         <li v-for="(item, i) in items">
-          <a :href="'#'+'anchor-'+i" class="scrollactive-item"> {{item}} </a>
+          <a @click="fixHref($event)" :href="'#'+'anchor-'+i" class="scrollactive-item"> {{item}} </a>
         </li>
       </ul>
     </transition>
   </scrollactive>
 
+  <aboutbrand></aboutbrand>
   <hotitems></hotitems>
-  <diarieshead></diarieshead>
-  <giftpenshead></giftpenshead>
-  <penshead></penshead>
+  <diaries></diaries>
+  <giftpens></giftpens>
+  <pens></pens>
 
-  <footer class="p-4">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-  </footer>
   <div class="btn-basket">
-  <a href="#" class="cd-cart-trigger" @click="showBasket()">
-  </a>
-  <div>{{ $store.state.cartCount }}</div>
+    <a href="#" class="cd-cart-trigger" @click="showBasket()">
+    </a>
+    <div>{{ $store.state.cartCount }}</div>
   </div>
   <basket v-show="showModalBasket" @close="showModalBasket = false" @updateParent="showBasketEnd"></basket>
   <backtotop></backtotop>
@@ -47,19 +45,21 @@
 </template>
 
 <script>
-import hotitems from './components/HotItems.vue'
-import diarieshead from './components/DiariesHead.vue'
-import giftpenshead from './components/GiftPensHead.vue'
-import penshead from './components/PensHead.vue'
+import hotitems from './components/HotItemsSection/HotItemsSection.vue'
+import diaries from './components/DiariesSection/DiariesSection.vue'
+import giftpens from './components/GiftPensSection/GiftPensSection.vue'
+import pens from './components/PensSection/PensSection.vue'
 import basket from './components/Basket.vue'
 import backtotop from './components/BackToTop.vue'
 import basketend from './components/BasketEnd.vue'
+import aboutbrand from './components/AboutBrand.vue'
 
 
 export default {
   data() {
     return {
         items: [
+          'О бренде',
           'Горячие новинки',
           'Ежедневники',
           'Подарочные ручки',
@@ -86,7 +86,10 @@ export default {
     clickMenu: function() {
       this.active = !this.active
     },
+    fixHref: function(event) {
+      setTimeout(() => history.pushState(null,null,' '), 845)
+    }
   },
-  components: {hotitems, diarieshead, giftpenshead, penshead, basket, backtotop, basketend}
+  components: {hotitems, diaries, giftpens, pens, basket, backtotop, basketend,aboutbrand}
 }
 </script>
