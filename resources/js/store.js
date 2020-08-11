@@ -4,7 +4,8 @@ let cartCount = window.localStorage.getItem('cartCount')
 let store = {
   state: {
       cart: cart ? JSON.parse(cart) : [],
-      cartCount: cartCount ? parseInt(cartCount) : 0
+      cartCount: cartCount ? parseInt(cartCount) : 0,
+      isAddItemVisible: false
   },
   mutations: {
     addToCart(state, item) {
@@ -46,14 +47,6 @@ let store = {
         state.cart[index].totalPrice -= state.cart[index].price
       }
     },
-    deleteCart() {
-      // state.cart = []
-      // state.cartCount = 0
-      // console.log(state.cart)
-      // window.localStorage.setItem('cart', [])
-      // window.localStorage.setItem('cartCount', 0)
-      // this.commit('saveCart')
-    },
     saveCart(state, saveCart) {
       if (saveCart == 1) {
         window.localStorage.setItem('cart', [])
@@ -62,6 +55,9 @@ let store = {
         window.localStorage.setItem('cart', JSON.stringify(state.cart))
         window.localStorage.setItem('cartCount', state.cartCount)
       }
+    },
+    changeAddItem: (state) => {
+      state.isAddItemVisible = !state.isAddItemVisible
     }
   },
   actions: {
@@ -70,6 +66,14 @@ let store = {
     },
     DECREMENT_CART_ITEM({commit}, index) {
       commit('decrement', index)
+    },
+    TOGGLE_ADD_ITEM({commit}) {
+      commit('changeAddItem')
+    }
+  },
+  getters: {
+    SHOW_ADD_ITEM(state) {
+      return state.isAddItemVisible
     }
   }
 };

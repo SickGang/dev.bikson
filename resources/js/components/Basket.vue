@@ -1,9 +1,11 @@
 <template>
-
-<div class="basket-wrapper">
-  <div class="basket d-flex flex-column p-4" v-on:closeBasket="$emit('close')">
+<transition name="modal-fade">
+  <div class="basket-wrapper">
+<!--    this.$store.dispatch('TOGGLE_ADD_ITEM')-->
+<!--    v-on:closeBasket="$emit('close')"-->
+    <div class="basket d-flex flex-column p-4" v-on:closeBasket="$emit('close')">
     <div class="basket-close align-self-end">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="$emit('close')"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeBasket"><span aria-hidden="true">&times;</span></button>
     </div>
     <div class="">
       <div class="basket-list">
@@ -84,11 +86,13 @@
   </div>
 
 </div>
+</transition>
 
 </template>
 
 <script>
 import {mapActions} from 'vuex'
+import {mapGetters} from 'vuex'
 
 export default {
   props: ['baskState'],
@@ -131,8 +135,6 @@ export default {
         this.email = '',
         this.phone = '',
         this.city = '',
-        // this.$store.state.cart = [],
-        // this.$store.state.cartCount = 0,
         this.errors = ''
         this.$store.commit('saveCart', this.saveCart)
       } else {
@@ -163,9 +165,15 @@ export default {
     },
     decrement(index) {
       this.DECREMENT_CART_ITEM(index)
+    },
+    closeBasket() {
+      this.$store.dispatch('TOGGLE_ADD_ITEM')
     }
   },
   computed: {
+    ...mapGetters([
+      'SHOW_ADD_ITEM'
+    ]),
     totalPrice() {
       let total = 0
 
@@ -178,3 +186,15 @@ export default {
   }
 }
 </script>
+
+<style>
+.modal-fade-enter,
+ .modal-fade-leave-active {
+   opacity: 0;
+ }
+
+ .modal-fade-enter-active,
+ .modal-fade-leave-active {
+   transition: opacity .5s ease
+ }
+</style>

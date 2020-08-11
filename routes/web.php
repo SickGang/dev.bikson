@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::post('/submit', 'BiksonController@sendMail');
 Route::post('/getItems', 'BiksonController@getItems');
+Route::post('/getImages', 'BiksonController@getImages');

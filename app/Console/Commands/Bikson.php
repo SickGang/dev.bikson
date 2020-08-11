@@ -42,45 +42,91 @@ class Bikson extends Command
         parent::__construct();
     }
 
+    private function saveImage($product=array(),$item_id=0)
+    {
+        $image_url = '';
+        $main_image_url = '';
+        $source_img_url = '';
+        $prefix_intekopt_image = 'https://intekopt.ru/upload/photo/';
+        if ($product['img_url']) {
+            for ($i=0; $i < 10; $i++) {
+                $source_img_url = $prefix_intekopt_image.$product['prefix_image'].'/'.$i.'.jpg';
+                if (@exif_imagetype($source_img_url)) {
+                    if ($i == 0) {
+                        $main_image_url = '/images/products/'.$product['prefix_image'].'.jpg';
+                    }
+                    $contents = file_get_contents($source_img_url);
+                    $store = Storage::disk('public_images_products')->put($product['prefix_image'].'_'.$i.'.jpg', $contents);
+                    $image_url = '/images/products/'.$product['prefix_image'].'_'.$i.'.jpg';
+
+                    $image = Image::where('url', $image_url)->first();
+                    if (!$image) {
+                        $image = new Image;
+                    }
+                    $image->url = $image_url;
+                    $image->catalog_item_id = $item_id;
+                    $image->save();
+                }
+            }
+        }
+
+        return $main_image_url;
+    }
+
     private function saveProduct($products=array())
     {
         if ($products && is_array($products)) {
             foreach ($products as $key => $product) {
                 $image_url = '';
                 if (@exif_imagetype($product['img_url'])) {
-                    $contents = file_get_contents($product['img_url']);
-                    // $name = substr($product['img_url'], strrpos($product['img_url'], '/') + 1);
-                    $store = Storage::disk('public_images_products')->put($product['prefix_image'].'.jpg', $contents);
+                //     $contents = file_get_contents($product['img_url']);
+                //     // $name = substr($product['img_url'], strrpos($product['img_url'], '/') + 1);
+                //     $store = Storage::disk('public_images_products')->put($product['prefix_image'].'.jpg', $contents);
                     $image_url = '/images/products/'.$product['prefix_image'].'.jpg';
-                    // Log::channel('catalog')->debug($image_url);
+                //     // Log::channel('catalog')->debug($image_url);
                 }
 
-                $prefix_intekopt_image = 'https://intekopt.ru/upload/photo/';
-                if ($product['img_url']) {
-                    for ($i=0; $i < 10; $i++) {
-                        if (@exif_imagetype($prefix_intekopt_image.$product['prefix_image'].'/'.$i.'.jpg')) {
-                            // $contents = file_get_contents($product['img_url']);
-                            // $store = Storage::disk('public_images_products')->put($product['prefix_image'].'.jpg', $contents);
-                            $image_url = '/images/products/'.$product['prefix_image'].'_'.$i.'.jpg';
-                            Log::channel('catalog')->debug($image_url);
-                        }
-                    }
+                $description = '';
+                foreach ($product['properties'] as $key => $property) {
+                    $description .= $key.': '.$property."<br>";
+                }
+                if ($product['category'] == 'Ручки автоматические') {
+                    $description .= 'Корпус выполнен из материала  Soft Tauch, а цветовая палитра идеально сочетается в паре с ежедневником.';
                 }
 
+                switch ($product['category']) {
+                    case 'Ручки автоматические':
+                        $price = 50;
+                        break;
+                    case 'Ручки подарочные':
+                        $price = 650;
+                        break;
+                    case 'Ежедневники А5':
+                        $price = 1500;
+                        break;
 
-                // $item = Item::where('api_inteksar_id', $product['id'])->first();
-                // if (!$item) {
-                //     $item = new Item;
-                // }
-                // $item->category = $product['category'];
-                // $item->title = $product['title'];
-                // $item->quantity = $product['quantity'];
+                    default:
+                        // code...
+                        break;
+                }
+
+                $item = Item::where('api_inteksar_id', $product['id'])->first();
+                if (!$item) {
+                    $item = new Item;
+                }
+                $item->category = $product['category'];
+                $item->title = $product['title'];
+                $item->description = $description;
+                $item->quantity = $product['quantity'];
                 // $item->price = $product['price'];
-                // $item->img_url = $image_url;
-                // $item->inv_code = $product['inv_code'];
-                // $item->api_inteksar_id = $product['id'];
-                // $item->save();
-                // echo date('Y-m-d H:i:s').' save product id = '.$item->id."\n";
+                $item->price = $price;
+                $item->img_url = $image_url;
+                $item->inv_code = $product['inv_code'];
+                $item->api_inteksar_id = $product['id'];
+                $item->save();
+
+                $this->saveImage($product, $item->id);
+                echo date('Y-m-d H:i:s').' save product id = '.$item->id."\n";
             }
         }
 

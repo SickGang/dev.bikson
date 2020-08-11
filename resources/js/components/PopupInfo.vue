@@ -8,10 +8,17 @@
 
 <script>
     export default {
-        name: "PopupInfo"
     }
 </script>
 
 <style scoped>
+.modal-fade-enter,
+ .modal-fade-leave-active {
+   opacity: 0;
+ }
 
+ .modal-fade-enter-active,
+ .modal-fade-leave-active {
+   transition: opacity .5s ease
+ }
 </style>

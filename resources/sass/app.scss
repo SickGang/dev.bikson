@@ -100,7 +100,14 @@ Burger end
   padding: 35px 0px;
 }
 
+// #anchor-1>div {
+//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+//   border-radius: 1rem;
+// }
+
 .item-button {
+  border: none;
+  margin-right: 5px;
   text-decoration: none;
   border-radius: 15px;
   background: $black;
@@ -113,6 +120,12 @@ Burger end
     background: $gold;
     color: #fff;
   }
+}
+
+.item-button_mod {
+  padding: 3px 7px;
+  font-size: 15px;
+  height: 37px;
 }
 
 .goods-list_item__img {
@@ -256,6 +269,11 @@ Burger end
   text-align: center;
 }
 
+.close-modal {
+    text-align: right;
+    font-size: 38px;
+}
+
 @media (max-width: 575px) {
   .item-section_link {
     text-align: center !important;
@@ -323,4 +341,39 @@ Burger end
   box-shadow: 0 10px 15px rgba(0, 0, 0, .33);
   transition: all .5s ease;
   border-radius: 3%;
+}
+
+.popup_title {
+  overflow: hidden;
+}
+
+.popup_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.popup_info-wrap {
+  justify-content: space-around;
+}
+
+.item-image {
+  width: 100%;
+}
+
+.goods-list_item__img {
+  position: relative;
+}
+
+.goods-list_item__img-sale {
+  position: absolute;
+  background: url('https://intekopt.ru/local/media/img/icons/item-label--green.svg') no-repeat left bottom / contain;
+  font-size: 11px;
+  line-height: 0.8;
+  left: 0%;
+  color: #fff;
+  padding: 8px 20px 2px 20px;
+  bottom: 95%;
+  white-space: nowrap;
 }

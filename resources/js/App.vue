@@ -36,15 +36,15 @@
     </a>
     <div>{{ $store.state.cartCount }}</div>
   </div>
-  <basket v-show="showModalBasket" @close="showModalBasket = false" @updateParent="showBasketEnd"></basket>
+  <basket v-show="SHOW_ADD_ITEM" @updateParent="showBasketEnd"></basket>
   <backtotop></backtotop>
   <basketend v-if="baskState" @closeBasket="closeBasketEnd"></basketend>
-
 </div>
 
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 import hotitems from './components/HotItemsSection/HotItemsSection.vue'
 import diaries from './components/DiariesSection/DiariesSection.vue'
 import giftpens from './components/GiftPensSection/GiftPensSection.vue'
@@ -70,6 +70,11 @@ export default {
         baskState: false
     }
   },
+  computed: {
+    ...mapGetters([
+      'SHOW_ADD_ITEM'
+    ])
+  },
   methods: {
     showBasketEnd() {
       this.baskState = !this.baskState
@@ -81,7 +86,7 @@ export default {
     },
     showBasket: function () {
       event.preventDefault()
-      this.showModalBasket = true
+      this.$store.dispatch('TOGGLE_ADD_ITEM')
     },
     clickMenu: function() {
       this.active = !this.active

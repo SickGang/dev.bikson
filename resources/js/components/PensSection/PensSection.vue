@@ -2,15 +2,12 @@
 <div class="title-block text-center p-5" ref="anchor-4" id="anchor-4">
     <h1>Ручки</h1>
     <span>Автоматические ручки с  матовым корпусом  Soft Tauch. Ручки разработаны  в  идентичной цветовой палитре к ежедневникам. Цвет чернил синий.</span>
-  <div class="d-flex">
-    <div v-for="(item, index) in response" v-if="index<2" class="goods-list_item col-lg-6 d-flex flex-column p-2">
-      <pensitemhead :item="item"></pensitemhead>
-    </div>
+  <div class="d-flex flex-wrap">
+      <pensitemhead v-for="(item, index) in response" v-if="index<2" :item="item" :key="item.id"></pensitemhead>
   </div>
   <div class="goods-list d-flex flex-wrap mb-5 mt-5">
-    <div v-for="item in response" class="goods-list_item col-lg-3 d-flex flex-column p-2">
-      <pensitem :item="item"></pensitem>
-    </div>
+      <pensitem v-for="item in response" :item="item" :key="item.id"></pensitem>
+  </div>
   </div>
 </div>
 </template>

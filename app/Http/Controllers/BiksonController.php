@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Catalog\Item;
+use App\Models\Catalog\Image;
 use App\Models\Shop\Order;
 use App\Models\Shop\OrderItem;
 use App\Mail\WelcomeMail;
@@ -70,6 +71,13 @@ class BiksonController extends Controller
     }
 
     return $items;
+  }
+
+  public function getImages(Request $request)
+  {
+    $itemId = $request->itemId;
+    $images = Image::where('catalog_item_id', $itemId)->get();
+    return $images;
   }
 
 }
