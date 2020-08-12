@@ -11,7 +11,7 @@
     <div class="goods-list_item__info d-flex p-3 flex-column align-items-center">
       <div class="goods-list_item__info-left mr-3">
         <p>{{item.title}}</p>
-        <span>{{item.price}} руб</span>
+        <span>{{item.price}} ₽</span>
       </div>
       <div class="goods-list_item__info-right d-flex mt-3">
         <tippy class="mb-2" trigger="click" theme="light" interactive="true" zIndex="3" size="large" arrow="true" :duration="[600,600]" :delay="[400,0]">
@@ -39,7 +39,7 @@
         <div class="popup_info col-12 col-md-4">
           <div class="popup_info-spec">
             <tbody>
-              <tr><td><span>Стоимость:</span></td><td><span class="font-weight-bold">{{item.price}} руб.</span></td></tr>
+              <tr><td><span>Стоимость:</span></td><td><span class="font-weight-bold">{{item.price}} ₽</span></td></tr>
             </tbody>
             <div class="text-left" v-html="item.description">
             </div>

@@ -1,7 +1,5 @@
 <template>
-
 <div id="app">
-
   <header class="header">
     <div class="header-logo mt-3">
     </div>

@@ -8,7 +8,7 @@
   <div class="item-section_info d-flex flex-column col-lg-4 mt-0 mt-sm-3">
     <div class="item-section_info_top">
       <h3>{{item.title}}</h3>
-      <span>{{item.price}} руб</span>
+      <span>{{item.price}} ₽</span>
     </div>
     <div class="item-section_info_bottom">
       <div class="item-section_info_bottom-button mt-3 d-flex flex-dire justify-content-center">
@@ -38,7 +38,7 @@
         <div class="popup_info col-12 col-md-4">
           <div class="popup_info-spec">
             <tbody>
-              <tr><td><span>Стоимость:</span></td><td><span class="font-weight-bold">{{item.price}} руб.</span></td></tr>
+              <tr><td><span>Стоимость:</span></td><td><span class="font-weight-bold">{{item.price}} ₽</span></td></tr>
             </tbody>
             <div class="text-left" v-html="item.description">
             </div>

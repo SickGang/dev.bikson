@@ -1,8 +1,6 @@
 <template>
 <transition name="modal-fade">
   <div class="basket-wrapper">
-<!--    this.$store.dispatch('TOGGLE_ADD_ITEM')-->
-<!--    v-on:closeBasket="$emit('close')"-->
     <div class="basket d-flex flex-column p-4" v-on:closeBasket="$emit('close')">
     <div class="basket-close align-self-end">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeBasket"><span aria-hidden="true">&times;</span></button>
@@ -28,7 +26,7 @@
                     <span @click="increment(index)" class="basket-list_item__btn">+</span>
                 </div>
                 <div class="basket-list_item__price col-lg-3 col text-center">
-                  <span>{{item.price}} руб</span>
+                  <span>{{item.price}} ₽</span>
                 </div>
               </div>
             </div>
@@ -43,7 +41,7 @@
       </div>
     </div>
     <div class="mt-4">
-      <span class="font-weight-bold">Итого: {{ totalPrice }} руб</span>
+      <span class="font-weight-bold">Итого: {{ totalPrice }} ₽</span>
     </div>
     <div class="mt-2">
       <div class="basket-info mt-3">

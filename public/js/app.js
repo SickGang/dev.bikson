@@ -1966,8 +1966,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -2219,8 +2217,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2361,7 +2357,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -3138,11 +3133,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['itemId'],
   data: function data() {
@@ -3161,7 +3151,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    // this.initSlider()
     this.getImage(); // Перенастройка слайдера при ресайзе окна
 
     window.addEventListener('resize', function () {
@@ -7989,7 +7978,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "span[data-v-0517783d] {\n  cursor: pointer;\n}\n.slider[data-v-0517783d] {\n  width: 100%;\n  height: 400px;\n  position: relative;\n  overflow: hidden;\n}\n.slider__body[data-v-0517783d] {\n  min-width: auto;\n  height: 400px;\n  display: flex;\n  position: relative;\n  align-items: stretch;\n  transition: all 0.5s ease;\n}\n.slider__slide[data-v-0517783d] {\n  min-width: 100%;\n  height: 400px;\n  background: no-repeat;\n  background-size: 80% 80%;\n  background-position: center;\n  flex: 1 100%;\n}", ""]);
+exports.push([module.i, "span[data-v-0517783d] {\n  cursor: pointer;\n}\n.slider[data-v-0517783d] {\n  width: 100%;\n  height: 400px;\n  position: relative;\n  overflow: hidden;\n}\n.slider__body[data-v-0517783d] {\n  min-width: auto;\n  height: 400px;\n  display: flex;\n  position: relative;\n  align-items: stretch;\n  transition: all 0.5s ease;\n}\n.slider__slide[data-v-0517783d] {\n  min-width: 100%;\n  height: 400px;\n  background: no-repeat;\n  background-size: contain;\n  background-position: center;\n  flex: 1 100%;\n}\n.btnSlider svg[data-v-0517783d] {\n  border: 1px solid black;\n  border-radius: 50%;\n}\n.btnSlider svg[data-v-0517783d]:hover {\n  background-color: black;\n  color: white;\n  transition: 0.7s ease-out;\n}", ""]);
 
 // exports
 
@@ -40598,7 +40587,7 @@ var render = function() {
                                     },
                                     [
                                       _c("span", [
-                                        _vm._v(_vm._s(item.price) + " руб")
+                                        _vm._v(_vm._s(item.price) + " ₽")
                                       ])
                                     ]
                                   )
@@ -40653,7 +40642,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "mt-4" }, [
             _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("Итого: " + _vm._s(_vm.totalPrice) + " руб")
+              _vm._v("Итого: " + _vm._s(_vm.totalPrice) + " ₽")
             ])
           ]),
           _vm._v(" "),
@@ -40943,7 +40932,7 @@ var render = function() {
           _c("div", { staticClass: "goods-list_item__info-left mr-3" }, [
             _c("p", [_vm._v(_vm._s(_vm.item.title))]),
             _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(_vm.item.price) + " руб")])
+            _c("span", [_vm._v(_vm._s(_vm.item.price) + " ₽")])
           ]),
           _vm._v(" "),
           _c(
@@ -41066,7 +41055,7 @@ var render = function() {
                           _c("td", [_c("span", [_vm._v("Стоимость:")])]),
                           _c("td", [
                             _c("span", { staticClass: "font-weight-bold" }, [
-                              _vm._v(_vm._s(_vm.item.price) + " руб.")
+                              _vm._v(_vm._s(_vm.item.price) + " ₽")
                             ])
                           ])
                         ])
@@ -41168,7 +41157,7 @@ var render = function() {
           _c("div", { staticClass: "item-section_info_top" }, [
             _c("h3", [_vm._v(_vm._s(_vm.item.title))]),
             _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(_vm.item.price) + " руб")])
+            _c("span", [_vm._v(_vm._s(_vm.item.price) + " ₽")])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "item-section_info_bottom" }, [
@@ -41296,7 +41285,7 @@ var render = function() {
                           _c("td", [_c("span", [_vm._v("Стоимость:")])]),
                           _c("td", [
                             _c("span", { staticClass: "font-weight-bold" }, [
-                              _vm._v(_vm._s(_vm.item.price) + " руб.")
+                              _vm._v(_vm._s(_vm.item.price) + " ₽")
                             ])
                           ])
                         ])
@@ -41441,7 +41430,7 @@ var render = function() {
           _c("div", { staticClass: "goods-list_item__info-left mr-3" }, [
             _c("p", [_vm._v(_vm._s(_vm.item.title))]),
             _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(_vm.item.price) + " руб")])
+            _c("span", [_vm._v(_vm._s(_vm.item.price) + " ₽")])
           ]),
           _vm._v(" "),
           _c(
@@ -41564,7 +41553,7 @@ var render = function() {
                           _c("td", [_c("span", [_vm._v("Стоимость:")])]),
                           _c("td", [
                             _c("span", { staticClass: "font-weight-bold" }, [
-                              _vm._v(_vm._s(_vm.item.price) + " руб.")
+                              _vm._v(_vm._s(_vm.item.price) + " ₽")
                             ])
                           ])
                         ])
@@ -41660,7 +41649,7 @@ var render = function() {
           _c("div", { staticClass: "item-section_info_top" }, [
             _c("h3", [_vm._v(_vm._s(_vm.item.title))]),
             _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(_vm.item.price) + " руб")])
+            _c("span", [_vm._v(_vm._s(_vm.item.price) + " ₽")])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "item-section_info_bottom" }, [
@@ -41788,7 +41777,7 @@ var render = function() {
                           _c("td", [_c("span", [_vm._v("Стоимость:")])]),
                           _c("td", [
                             _c("span", { staticClass: "font-weight-bold" }, [
-                              _vm._v(_vm._s(_vm.item.price) + " руб.")
+                              _vm._v(_vm._s(_vm.item.price) + " ₽")
                             ])
                           ])
                         ])
@@ -41942,7 +41931,7 @@ var render = function() {
           _c("div", { staticClass: "item-section_info_top" }, [
             _c("h3", [_vm._v(_vm._s(_vm.item.title))]),
             _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(_vm.item.price) + " руб")])
+            _c("span", [_vm._v(_vm._s(_vm.item.price) + " ₽")])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "item-section_info_bottom" }, [
@@ -42074,7 +42063,7 @@ var render = function() {
                           _c("td", [_c("span", [_vm._v("Стоимость:")])]),
                           _c("td", [
                             _c("span", { staticClass: "font-weight-bold" }, [
-                              _vm._v(_vm._s(_vm.item.price) + " руб.")
+                              _vm._v(_vm._s(_vm.item.price) + " ₽")
                             ])
                           ])
                         ])
@@ -42201,14 +42190,14 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("span", { on: { click: _vm.prevSlide } }, [
+    _c("span", { staticClass: "btnSlider", on: { click: _vm.prevSlide } }, [
       _c(
         "svg",
         {
           staticClass: "bi bi-arrow-left",
           attrs: {
-            width: "1em",
-            height: "1em",
+            width: "2em",
+            height: "2em",
             viewBox: "0 0 16 16",
             fill: "currentColor",
             xmlns: "http://www.w3.org/2000/svg"
@@ -42234,14 +42223,14 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("span", { on: { click: _vm.nextSlide } }, [
+    _c("span", { staticClass: "btnSlider", on: { click: _vm.nextSlide } }, [
       _c(
         "svg",
         {
           staticClass: "bi bi-arrow-right",
           attrs: {
-            width: "1em",
-            height: "1em",
+            width: "2em",
+            height: "2em",
             viewBox: "0 0 16 16",
             fill: "currentColor",
             xmlns: "http://www.w3.org/2000/svg"
@@ -42318,7 +42307,7 @@ var render = function() {
           _c("div", { staticClass: "goods-list_item__info-left mr-3" }, [
             _c("p", [_vm._v(_vm._s(_vm.item.title))]),
             _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(_vm.item.price) + " руб")])
+            _c("span", [_vm._v(_vm._s(_vm.item.price) + " ₽")])
           ]),
           _vm._v(" "),
           _c(
@@ -42441,7 +42430,7 @@ var render = function() {
                           _c("td", [_c("span", [_vm._v("Стоимость:")])]),
                           _c("td", [
                             _c("span", { staticClass: "font-weight-bold" }, [
-                              _vm._v(_vm._s(_vm.item.price) + " руб.")
+                              _vm._v(_vm._s(_vm.item.price) + " ₽")
                             ])
                           ])
                         ])
@@ -42534,7 +42523,7 @@ var render = function() {
           _c("div", { staticClass: "goods-list_item__info-left mr-3" }, [
             _c("p", [_vm._v(_vm._s(_vm.item.title))]),
             _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(_vm.item.price) + " руб")])
+            _c("span", [_vm._v(_vm._s(_vm.item.price) + " ₽")])
           ]),
           _vm._v(" "),
           _c(
@@ -42639,7 +42628,7 @@ var render = function() {
                           _c("td", [_c("span", [_vm._v("Стоимость:")])]),
                           _c("td", [
                             _c("span", { staticClass: "font-weight-bold" }, [
-                              _vm._v(_vm._s(_vm.item.price) + " руб.")
+                              _vm._v(_vm._s(_vm.item.price) + " ₽")
                             ])
                           ])
                         ])
@@ -66492,7 +66481,6 @@ var store = {
     },
     removeFromBasket: function removeFromBasket(state, item) {
       var index = state.cart.indexOf(item);
-      console.log(cartCount);
 
       if (index > -1) {
         var product = state.cart[index];

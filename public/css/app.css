@@ -11050,6 +11050,7 @@ Burger end
   text-decoration: none;
   background: #d6ae27;
   color: #fff;
+  transition: 0.4s ease-out;
 }
 
 .item-button_mod {
@@ -11282,13 +11283,13 @@ Burger end
 
 .goods-list_item__img-sale {
   position: absolute;
-  background: url("https://intekopt.ru/local/media/img/icons/item-label--green.svg") no-repeat left bottom/contain;
+  background-color: #f40d46;
+  border-radius: 40%;
   font-size: 11px;
-  line-height: 0.8;
-  left: 0%;
+  line-height: 0.7;
+  left: 5px;
+  top: 5px;
   color: #fff;
-  padding: 8px 20px 2px 20px;
-  bottom: 95%;
-  white-space: nowrap;
+  padding: 8px 20px 7px 20px;
 }
 

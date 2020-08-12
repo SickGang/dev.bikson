@@ -53,9 +53,6 @@ nav {
 Burger start
 *************/
 
-#sandwichmenu {
-	// margin: 5px 0 0 0;
-}
 .tpl_hamburger svg {height: 40px;width: 60px;}
 .tpl_hamburger svg {cursor: pointer;  height: 50px;  transform: translate3d(0px, 0px, 0px);  width: 80px;}
 svg:not(:root) {overflow: hidden;}
@@ -93,17 +90,11 @@ Burger end
   background-repeat: no-repeat;
   background-size: contain;
   padding-top: 60%;
-  // height: 650px;
 }
 
 .item-section {
   padding: 35px 0px;
 }
-
-// #anchor-1>div {
-//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-//   border-radius: 1rem;
-// }
 
 .item-button {
   border: none;
@@ -119,6 +110,7 @@ Burger end
     text-decoration: none;
     background: $gold;
     color: #fff;
+    transition: .4s ease-out;
   }
 }
 
@@ -129,8 +121,6 @@ Burger end
 }
 
 .goods-list_item__img {
-  // height: 350px;
-  // background-color: $black;
   a {
     img {
           max-width: 100%;
@@ -153,9 +143,6 @@ Burger end
       max-height: 100%;
     }
 }
-// .item-section_link {
-//   background-color: $black;
-// }
 
 .active {
   color: $gold !important;
@@ -368,12 +355,12 @@ Burger end
 
 .goods-list_item__img-sale {
   position: absolute;
-  background: url('https://intekopt.ru/local/media/img/icons/item-label--green.svg') no-repeat left bottom / contain;
+  background-color: #f40d46;
+  border-radius: 40%;
   font-size: 11px;
-  line-height: 0.8;
-  left: 0%;
+  line-height: 0.7;
+  left: 5px;
+  top: 5px;
   color: #fff;
-  padding: 8px 20px 2px 20px;
-  bottom: 95%;
-  white-space: nowrap;
+  padding: 8px 20px 7px 20px;
 }

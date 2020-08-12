@@ -25,7 +25,6 @@ let store = {
     },
     removeFromBasket(state, item) {
       let index = state.cart.indexOf(item)
-      console.log(cartCount)
       if (index > -1) {
           let product = state.cart[index]
           state.cartCount -= product.quantity
