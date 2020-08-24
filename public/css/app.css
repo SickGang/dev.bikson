@@ -11132,7 +11132,7 @@ Burger end
   top: 0px;
   left: 0px;
   width: 100vw;
-  height: 85vh;
+  height: 90vh;
 }
 
 .basket,
@@ -11171,7 +11171,15 @@ Burger end
 
 .basket-close button span,
 .basket-list_item__del-btn button span {
-  font-size: 2.5rem;
+  font-size: 2rem;
+}
+
+.basket-list_head__btn {
+  margin-right: 1rem;
+}
+
+.basket-list_head__btn button span {
+  font-size: 2rem;
 }
 
 .basket-list_item__del-btn button span {

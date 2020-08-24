@@ -2,13 +2,14 @@
 <transition name="modal-fade">
   <div class="basket-wrapper">
     <div class="basket d-flex flex-column p-4" v-on:closeBasket="$emit('close')">
-    <div class="basket-close align-self-end">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeBasket"><span aria-hidden="true">&times;</span></button>
-    </div>
+<!--    <div class="basket-close align-self-end">-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeBasket"><span aria-hidden="true">&times;</span></button>-->
+<!--    </div>-->
     <div class="">
       <div class="basket-list">
-        <div class="basket-list_head">
-          <h3 class="font-weight-bold">Корзина ({{ $store.state.cartCount }}) </h3>
+        <div class="basket-list_head row justify-content-between">
+          <div><h3 class="font-weight-bold">Корзина ({{ $store.state.cartCount }}) </h3></div>
+          <div class="basket-list_head__btn"><button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeBasket"><span aria-hidden="true">&times;</span></button></div>
         </div>
         <div class="basket-list_items">
           <div v-for="(item, index) in $store.state.cart" :key="item.id" v-if="$store.state.cart.length > 0" class="basket-list_item-wrap row mb-2 align-items-lg-center">
@@ -44,7 +45,7 @@
       <span class="font-weight-bold">Итого: {{ totalPrice }} ₽</span>
     </div>
     <div class="mt-2">
-      <div class="basket-info mt-3">
+      <div class="basket-info">
         <div class="basket-info_head">
           <h3 class="font-weight-bold">Получатель</h3>
         </div>
@@ -165,6 +166,7 @@ export default {
       this.DECREMENT_CART_ITEM(index)
     },
     closeBasket() {
+      document.body.style.overflow = 'visible'
       this.$store.dispatch('TOGGLE_ADD_ITEM')
     }
   },
@@ -194,5 +196,9 @@ export default {
  .modal-fade-enter-active,
  .modal-fade-leave-active {
    transition: opacity .5s ease
+ }
+
+ body.basket {
+   overflow: hidden;
  }
 </style>

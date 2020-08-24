@@ -16,7 +16,7 @@
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     </head>
 <body>
-    <div class="container">
+    <div class="container test">
       <div id="app">
         <App></App>
       </div>

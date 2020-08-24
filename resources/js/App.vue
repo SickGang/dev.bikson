@@ -84,6 +84,7 @@ export default {
     },
     showBasket: function () {
       event.preventDefault()
+      document.body.style.overflow = 'hidden'
       this.$store.dispatch('TOGGLE_ADD_ITEM')
     },
     clickMenu: function() {

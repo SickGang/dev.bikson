@@ -1996,6 +1996,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     showBasket: function showBasket() {
       event.preventDefault();
+      document.body.style.overflow = 'hidden';
       this.$store.dispatch('TOGGLE_ADD_ITEM');
     },
     clickMenu: function clickMenu() {
@@ -2217,6 +2218,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2282,6 +2284,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.DECREMENT_CART_ITEM(index);
     },
     closeBasket: function closeBasket() {
+      document.body.style.overflow = 'visible';
       this.$store.dispatch('TOGGLE_ADD_ITEM');
     }
   }),
@@ -8130,7 +8133,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.modal-fade-enter,\r\n .modal-fade-leave-active {\r\n   opacity: 0;\n}\n.modal-fade-enter-active,\r\n .modal-fade-leave-active {\r\n   transition: opacity .5s ease\n}\r\n", ""]);
+exports.push([module.i, "\n.modal-fade-enter,\r\n .modal-fade-leave-active {\r\n   opacity: 0;\n}\n.modal-fade-enter-active,\r\n .modal-fade-leave-active {\r\n   transition: opacity .5s ease\n}\nbody.basket {\r\n   overflow: hidden;\n}\r\n", ""]);
 
 // exports
 
@@ -40471,31 +40474,41 @@ var render = function() {
           }
         },
         [
-          _c("div", { staticClass: "basket-close align-self-end" }, [
-            _c(
-              "button",
-              {
-                staticClass: "close",
-                attrs: {
-                  type: "button",
-                  "data-dismiss": "modal",
-                  "aria-label": "Close"
-                },
-                on: { click: _vm.closeBasket }
-              },
-              [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-            )
-          ]),
-          _vm._v(" "),
           _c("div", {}, [
             _c("div", { staticClass: "basket-list" }, [
-              _c("div", { staticClass: "basket-list_head" }, [
-                _c("h3", { staticClass: "font-weight-bold" }, [
-                  _vm._v(
-                    "Корзина (" + _vm._s(_vm.$store.state.cartCount) + ") "
-                  )
-                ])
-              ]),
+              _c(
+                "div",
+                { staticClass: "basket-list_head row justify-content-between" },
+                [
+                  _c("div", [
+                    _c("h3", { staticClass: "font-weight-bold" }, [
+                      _vm._v(
+                        "Корзина (" + _vm._s(_vm.$store.state.cartCount) + ") "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "basket-list_head__btn" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "close",
+                        attrs: {
+                          type: "button",
+                          "data-dismiss": "modal",
+                          "aria-label": "Close"
+                        },
+                        on: { click: _vm.closeBasket }
+                      },
+                      [
+                        _c("span", { attrs: { "aria-hidden": "true" } }, [
+                          _vm._v("×")
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -40647,7 +40660,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mt-2" }, [
-            _c("div", { staticClass: "basket-info mt-3" }, [
+            _c("div", { staticClass: "basket-info" }, [
               _c("div", { staticClass: "basket-info_head" }, [
                 _c("h3", { staticClass: "font-weight-bold" }, [
                   _vm._v("Получатель")
